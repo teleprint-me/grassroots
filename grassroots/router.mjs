@@ -1,18 +1,11 @@
-let routes = {
-    error: "/views/error.html",
-    "/": "/views/profile.html",
-    "/portfolio": "/views/portfolio.html",
-    "/contact": "/views/contact.html",
-};
-
-const handleLocation = async () => {
+async function handleLocation(selector = "#application") {
     const path = window.location.pathname;
     const route = routes[path] || routes["error"];
     const html = await fetch(route).then((data) => data.text());
-    document.querySelector("#application").innerHTML = html;
+    document.querySelector(selector).innerHTML = html;
 };
 
-const route = (event) => {
+function route(event) {
     event = event || window.event;
     let link = event.target.parentElement;
     event.preventDefault();
@@ -20,10 +13,10 @@ const route = (event) => {
     handleLocation();
 };
 
-const initializeRouter = () => {
+function initializeRouter() {
     window.onpopstate = handleLocation;
     window.route = route;
     handleLocation();
 };
 
-export { initializeRouter, route };
+export { route, initializeRouter };
