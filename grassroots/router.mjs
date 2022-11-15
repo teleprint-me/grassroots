@@ -9,7 +9,7 @@ function route(event) {
     event = event || window.event;
     let link = event.target.parentElement;
     event.preventDefault();
-    window.history.pushState({status: true}, "", link.href);
+    window.history.pushState({}, "", link.href);
     handleLocation();
 };
 
