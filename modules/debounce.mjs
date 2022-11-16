@@ -1,3 +1,4 @@
+// limit func to a single execution given the specified timing
 export function debounce(func, timing = 100) {
     let timer;
     return function () {
