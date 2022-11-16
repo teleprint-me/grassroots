@@ -1,7 +1,7 @@
 {
 	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 100,
+	"printWidth": 80,
 	"pluginSearchDirs": ["."],
     "editor.formatOnSave": true,
     "proseWrap": "always",
