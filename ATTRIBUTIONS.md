@@ -13,7 +13,7 @@
     - Source: [Alpine Utils](https://github.com/alpinejs/alpine/blob/main/packages/alpinejs/src/utils/throttle.js)
 
   - router.mjs
-    - Source: [SPA Router](https://www.youtube.com/watch?v=ZleShIpv5zQ&list=LL&index=22&t=28s)
+    - Source: [SPA Router](https://www.youtube.com/watch?v=ZleShIpv5zQ)
 
   - request.mjs
-    - Source: [XMLHttpRequest](https://www.youtube.com/watch?v=4K33w-0-p2c&list=LL&index=97&t=2s)
+    - Source: [XMLHttpRequest](https://www.youtube.com/watch?v=4K33w-0-p2c)
