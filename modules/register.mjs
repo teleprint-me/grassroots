@@ -1,15 +1,27 @@
-function hasTemplateSupport() {
-    return 'content' in document.createElement('template');
-}
+class Register {
+    constructor() {
+        this.register = register;
+    }
 
-function register(...components) {
-    for (let component of components) {
-        customElements.define(
-            component.name,
-            component.constructor,
-            component.options
-        );
+    static get hasTemplateSupport() {
+        return 'content' in document.createElement('template');
+    }
+
+    static get hasShadowSupport() {
+        return 'attachShadow' in document.createElement('div');
+    }
+
+    components(...descriptors) {
+        for (let descriptor of descriptors) {
+            customElements.define(
+                descriptor.name,
+                descriptor.constructor,
+                descriptor.options
+            );
+        }
     }
 }
 
-export { hasTemplateSupport, register };
+let register = new Register();
+
+export { register };
