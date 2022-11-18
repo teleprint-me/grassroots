@@ -1,8 +1,4 @@
 class Register {
-    constructor() {
-        this.register = register;
-    }
-
     static get hasTemplateSupport() {
         return 'content' in document.createElement('template');
     }
@@ -20,8 +16,14 @@ class Register {
             );
         }
     }
+
+    application(resolve, reject) {
+        if (this.hasTemplateSupport && this.hasShadowSupport) {
+            resolve();
+        } else {
+            reject();
+        }
+    }
 }
 
-let register = new Register();
-
-export { register };
+export let register = new Register();
