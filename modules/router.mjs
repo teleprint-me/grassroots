@@ -1,22 +1,21 @@
-async function handleLocation(selector = "#application") {
-    const path = window.location.pathname;
-    const route = routes[path] || routes["error"];
-    const html = await fetch(route).then((data) => data.text());
-    document.querySelector(selector).innerHTML = html;
-};
+import { request } from './request.mjs';
 
-function route(event) {
-    event = event || window.event;
-    let link = event.target.parentElement;
-    event.preventDefault();
-    window.history.pushState({}, "", link.href);
-    handleLocation();
-};
+export function router(selector, routes) {
+    async function onpopstate(event) {
+        const path = window.location.pathname;
+        const url = routes[path] || routes['error'];
+        document.querySelector(selector).innerHTML = await request.text(url);
+    }
 
-function initializeRouter() {
-    window.onpopstate = handleLocation;
+    function route(event) {
+        event = event || window.event;
+        let link = event.target.parentElement;
+        event.preventDefault();
+        window.history.pushState({}, '', link.href);
+        onpopstate();
+    }
+
+    window.onpopstate = onpopstate;
     window.route = route;
-    handleLocation();
-};
-
-export { route, initializeRouter };
+    onpopstate();
+}
