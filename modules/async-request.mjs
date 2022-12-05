@@ -17,6 +17,6 @@ export class AsyncRequest {
         const template = document.createElement('template');
         const document = parser.parseFromString(html, 'text/html');
         template.appendChild(document);
-        return template.content;
+        return template;
     }
 }
