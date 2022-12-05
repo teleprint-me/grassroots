@@ -1,6 +1,6 @@
 import { request } from './request.mjs';
 
-export function router(selector, routes) {
+export const router = function (selector, routes) {
     async function onpopstate(event) {
         const path = window.location.pathname;
         const url = routes[path] || routes['error'];
@@ -18,4 +18,4 @@ export function router(selector, routes) {
     window.onpopstate = onpopstate;
     window.route = route;
     onpopstate();
-}
+};
