@@ -1,4 +1,4 @@
-class Register {
+export class Register {
     static get hasTemplateSupport() {
         return 'content' in document.createElement('template');
     }
@@ -25,5 +25,3 @@ class Register {
         }
     }
 }
-
-export let register = new Register();
