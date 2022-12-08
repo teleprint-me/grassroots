@@ -19,4 +19,10 @@ export class AsyncRequest {
         template.appendChild(document);
         return template;
     }
+
+    async styleSheet(url) {
+        const css = await this.text(url);
+        const styleSheet = new CSSStyleSheet();
+        return styleSheet.replaceSync(css);
+    }
 }
