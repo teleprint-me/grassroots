@@ -22,8 +22,8 @@ export class AsyncRequest {
 
     async cssStyleSheet(url) {
         const css = await this.text(url);
-        const styleSheet = new CSSStyleSheet();
-        styleSheet.replaceSync(css);
-        return styleSheet;
+        const cssStyleSheet = new CSSStyleSheet();
+        cssStyleSheet.replaceSync(css);
+        return cssStyleSheet;
     }
 }
