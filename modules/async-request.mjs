@@ -20,9 +20,10 @@ export class AsyncRequest {
         return template;
     }
 
-    async styleSheet(url) {
+    async cssStyleSheet(url) {
         const css = await this.text(url);
         const styleSheet = new CSSStyleSheet();
-        return styleSheet.replaceSync(css);
+        styleSheet.replaceSync(css);
+        return styleSheet;
     }
 }
