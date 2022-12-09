@@ -13,11 +13,16 @@ export class AsyncRequest {
 
     async template(url) {
         const html = await this.text(url);
-        const parser = new DOMParser();
         const template = document.createElement('template');
-        const document = parser.parseFromString(html, 'text/html');
-        template.appendChild(document);
+        template.innerHTML = html;
         return template;
+    }
+
+    async style(url) {
+        const css = await this.text(url);
+        const style = document.createElement('style');
+        style.innerHTML = css;
+        return style;
     }
 
     async cssStyleSheet(url) {
